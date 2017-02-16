@@ -32,6 +32,7 @@ public class HelloServiceImpl implements HelloService {
 
   @Override
   public ServiceCall<NotUsed, String> hello(String id) {
+    System.out.println("id->" + id);
     return request -> {
       // Look up the hello world entity for the given ID.
       PersistentEntityRef<HelloCommand> ref = persistentEntityRegistry.refFor(HelloEntity.class, id);
