@@ -32,8 +32,8 @@ public class HelloServiceImpl implements HelloService {
 
   @Override
   public ServiceCall<NotUsed, String> hello(String id) {
-    System.out.println("id->" + id);
     return request -> {
+      System.out.println("hello id->" + id);
       // Look up the hello world entity for the given ID.
       PersistentEntityRef<HelloCommand> ref = persistentEntityRegistry.refFor(HelloEntity.class, id);
       // Ask the entity the Hello command.
@@ -44,6 +44,7 @@ public class HelloServiceImpl implements HelloService {
   @Override
   public ServiceCall<GreetingMessage, Done> useGreeting(String id) {
     return request -> {
+      System.out.println("Greeting id->" + id);
       // Look up the hello world entity for the given ID.
       PersistentEntityRef<HelloCommand> ref = persistentEntityRegistry.refFor(HelloEntity.class, id);
       // Tell the entity to use the greeting message specified.
