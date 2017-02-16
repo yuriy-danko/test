@@ -66,8 +66,7 @@ public class HelloEntity extends PersistentEntity<HelloCommand, HelloEvent, Hell
      * Event handler for the GreetingMessageChanged event.
      */
         b.setEventHandler(GreetingMessageChanged.class,
-                // We simply update the current state to use the greeting message from
-                // the event.
+                // We simply update the current state to use the greeting message from the event.
                 evt -> new HelloState(evt.message, LocalDateTime.now().toString()));
 
     /*
